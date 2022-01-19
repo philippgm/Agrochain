@@ -80,6 +80,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'Agrochain.wsgi.application'
 
+ACCOUNT_SIGNUP_FORM_CLASS = 'users.forms.SignupForm'
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases

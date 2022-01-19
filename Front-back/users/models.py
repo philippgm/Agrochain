@@ -4,6 +4,6 @@ from django.contrib.auth.models import AbstractUser
 from django.db import models
 
 class User(AbstractUser):
-    Relation = (("Produtor",1),("Consumidor",2),("Transportador",3),("Processador",4),)
+    Relation = (("1","Produtor"),("2","Consumidor"),("3","Transportador"),(4,"Processador"),)
     TypeUser = forms.ChoiceField(label='Category', widget=forms.Select, choices=Relation)
     
