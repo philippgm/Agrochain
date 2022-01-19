@@ -2,8 +2,10 @@ import profile
 from django import forms
 from django.contrib.auth.models import AbstractUser
 from django.db import models
+from users.choices import *
 
 class User(AbstractUser):
-    Relation = (("1","Produtor"),("2","Consumidor"),("3","Transportador"),(4,"Processador"),)
-    TypeUser = forms.ChoiceField(label='Category', widget=forms.Select, choices=Relation)
-    
+    TypeUser = models.IntegerField(choices=Relation, default=0)    
+    CNPJ = models.CharField(max_length=30, blank=True)
+    organic_numb_certification = models.CharField(max_length=30, blank=True)
+    company_name = models.CharField(max_length=30, blank=True)
