@@ -2,9 +2,10 @@ import django.contrib.staticfiles
 from django.views.generic import TemplateView
 from .forms import FillProfileForms
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpRequest, HttpResponse, request
 from django.http import HttpResponseRedirect
-
+from django.contrib.auth.decorators import login_required
+from users.models import User
 
 class HomePageView(TemplateView):
     template_name = "home.html"
@@ -30,6 +31,8 @@ def Fillprofileview(request):
         'form': form,
     })
 
-class ShowprofileView(TemplateView):
-    template_name = "showprofile.html"
+@login_required
+def ProfileView(request):
+    user = User
+    return render(request,"account/profile.html",{'User': User,})
 

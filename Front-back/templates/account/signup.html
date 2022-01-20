@@ -1,9 +1,11 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% load crispy_forms_tags %}
 
 {% block title %}Cadastro{% endblock %}
-
+{% block styles %}
+    <script src="{% static 'Agrochain/functions.js' %}"></script>
+{% endblock %}
 {% block content %}
     <h2>Cadastro</h2>
     <form method="post">

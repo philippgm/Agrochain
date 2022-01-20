@@ -9,3 +9,4 @@ class User(AbstractUser):
     CNPJ = models.CharField(max_length=30, blank=True)
     organic_numb_certification = models.CharField(max_length=30, blank=True)
     company_name = models.CharField(max_length=30, blank=True)
+    profile_set = False
