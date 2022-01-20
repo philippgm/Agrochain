@@ -23,7 +23,6 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     # User Management
     path("accounts/", include("allauth.urls")),
-    # Local
-    # path("profile/", ),
+
     path("", include("pages.urls", namespace="pages")),
 ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

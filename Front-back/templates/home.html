@@ -1,8 +1,20 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block title %}Agrochain{% endblock %}
 
 {% block content %}
-
-    asdasdasdasdasd
+<div style="padding:1px 16px;height:1000px;">
+    <div style = "float:left">
+        <figure>
+            <img src="{% static 'media/agrochain.jpg' %}" alt="My image">
+            <!-- <figcaption>Fig.1 - Trulli, Puglia, Italy.</figcaption> -->
+        </figure> 
+    </div>
+    <div>
+        <h1 style ="text-align: center;">Seja Bem Vindo!</h1>
+        <h3 style = "padding:10px 10px 0px 10px">Este é o Blockchain para Supplychain em Agronégocio.<br>
+        É um trabalho para a disciplina de Projeto Multdisciplinar.
+        </h3>
+    </div>
+</div>
 {% endblock %}

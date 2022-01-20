@@ -1,20 +1,21 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.http import HttpResponseRedirect
-from forms import ProfileForms
+from forms import FillProfileForms
 # Create your views here.
 
-def FillprofileView(request):
+def Fillprofileview(request):
     if request.method == 'POST':
 
         # Create a form instance and populate it with data from the request (binding):
-        form = Fillprofile(request.POST)
+        form = FillProfileForms(request.POST)
 
         # Check if the form is valid:
-
+        if form.is_valid():
+            return HttpResponseRedirect('/thanks/')
     # If this is a GET (or any other method) create the default form.
     else:
-        form = Fillprofile(initial={'renewal_date': proposed_renewal_date})
+        form = FillProfileForms()
 
     context = {
         'form': form,

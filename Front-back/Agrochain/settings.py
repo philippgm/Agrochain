@@ -25,12 +25,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
   
-ALLOWED_HOSTS = ["0.0.0.0"]
+# ALLOWED_HOSTS = ["0.0.0.0"]
 
 SECRET_KEY = 'django-insecure-uq95)!^!8s&k&+09)x@1vcef)gt#g%1lpx!^!@4v$ryw$%c_6+'
- 
-# Application definition
 
+# Application definition
+ 
 INSTALLED_APPS = [
        # django
     "django.contrib.admin",
@@ -80,6 +80,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'Agrochain.wsgi.application'
 
+ACCOUNT_SIGNUP_FORM_CLASS = 'users.forms.SignupForm'
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
@@ -141,7 +142,7 @@ STATIC_URL = '/static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = "users.User"
-
+LOGIN_URL = "/accounts/login"
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
     'allauth.account.auth_backends.AuthenticationBackend',
