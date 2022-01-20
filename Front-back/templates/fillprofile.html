@@ -13,13 +13,7 @@
 <form action="/fillprofile/" method="POST">
     {% csrf_token %}
     {{ form|crispy }}
-    <!-- <p><label for="id_CNPJ">CNPJ:</label>
-        <input id="text" type="text" name="CNPJ" maxlength="100" /></p>
-    <p><label for="id_organic_numb_certification">N° certificado:</label>
-        <input type="text" name="organic_numb_certification" id="id_organic_numb_certification" /></p>
-    <p><label for="id_company_name">Empresa:</label>
-        <input type="text" name="company_name" id="id_company_name" /></p> -->
-    <input type="submit" value="Submit" />
+    <input type="submit" value="Enviar" />
 </form>
 
 

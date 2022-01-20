@@ -2,7 +2,7 @@ import profile
 from django import forms
 from django.contrib.auth.models import AbstractUser
 from django.db import models
-from users.choices import *
+from pages.choices import *
 
 class User(AbstractUser):
     TypeUser = models.IntegerField(choices=Relation, default=0)    

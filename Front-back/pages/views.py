@@ -18,6 +18,7 @@ def Fillprofileview(request):
 
         # Check if the form is valid:
         if form.is_valid():
+            
             return HttpResponseRedirect('/thanks/')
     # If this is a GET (or any other method) create the default form.
     else:
