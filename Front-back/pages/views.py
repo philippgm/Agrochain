@@ -1,4 +1,5 @@
-import django.contrib.staticfiles 
+import django.contrib.staticfiles
+from django.forms import forms 
 from django.views.generic import TemplateView
 from .forms import FillProfileForms
 from django.shortcuts import render
@@ -15,10 +16,10 @@ def Fillprofileview(request):
 
         # Create a form instance and populate it with data from the request (binding):
         form = FillProfileForms(request.POST)
-
+        company_name = forms.cleaned_data['company_name']
         # Check if the form is valid:
         if form.is_valid():
-            
+
             return HttpResponseRedirect('/thanks/')
     # If this is a GET (or any other method) create the default form.
     else:
