@@ -21,4 +21,4 @@ def Fillprofileview(request):
         'form': form,
     }
 
-    return render('fillprofile.html', context)
+    return render(request, 'templates/fillprofile.html', context)
