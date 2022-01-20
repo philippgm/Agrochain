@@ -1,0 +1,259 @@
+{% extends 'base.html' %}
+
+{% block title %}Produtor{% endblock %}
+
+{% block content %}
+
+    Perfil do Produtor
+
+<!DOCTYPE html>
+
+
+<html>
+
+    <style>
+    .question_form {
+        display: none;
+    }
+    </style>
+
+<button id="relatorio" style="float: right" class="btn btn-success btn-mostrar" onclick="Mudarestado('q2')">Relatório</button> 
+
+<button id="criarNovo" style="float: right" class="btn btn-success btn-mostrar" onclick="Mudarestado('q1')">Novo Produto</button>
+
+
+<div class="question_form" id="q1">
+<form id="form1" action="Script_do_Formulario_Produto.php" method="post">
+
+ <body><br />
+  <h3> Bem vindo à página do Produtor</h3> 
+  <h3> Preencha o formulário abaixo para criar um produto na Agrochain</h3><br />
+
+<!-- Novo Produto-->
+<fieldset>
+ <legend>Dados do Produtor</legend>
+ <table cellspacing="10">
+  <tr>
+   <td>
+    <label for="nome">Nome: </label>
+   </td>
+   <td align="left">
+    <input type="text" name="nome">
+   </td>
+   <td>
+    <label for="sobrenome">Sobrenome: </label>
+   </td>
+   <td align="left">
+    <input type="text" name="sobrenome">
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <label>Nascimento: </label>
+   </td>
+   <td align="left">
+    <input type="text" name="dia" size="2" maxlength="2" value="dd"> 
+   <input type="text" name="mes" size="2" maxlength="2" value="mm"> 
+   <input type="text" name="ano" size="4" maxlength="4" value="aaaa">
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <label for="rg">RG: </label>
+   </td>
+   <td align="left">
+    <input type="text" name="rg" size="13" maxlength="13"> 
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <label>CPF:</label>
+   </td>
+   <td align="left">
+    <input type="text" name="cpf" size="9" maxlength="9"> - <input type="text" name="cpf2" size="2" maxlength="2">
+   </td>
+  </tr>
+ </table>
+</fieldset>
+
+<br />
+<!-- ENDEREÇO -->
+<fieldset>
+ <legend>Dados do Local de Produção</legend>
+ <table cellspacing="10">
+
+  <tr>
+   <td>
+    <label for="rua">Rua:</label>
+   </td>
+   <td align="left">
+    <input type="text" name="rua">
+   </td>
+   <td>
+    <label for="numero">Numero:</label>
+   </td>
+   <td align="left">
+    <input type="text" name="numero" size="4">
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <label for="bairro">Bairro: </label>
+   </td>
+   <td align="left">
+    <input type="text" name="bairro">
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <label for="estado">Estado:</label>
+   </td>
+   <td align="left">
+    <select name="estado"> 
+    <option value="ac">Acre</option> 
+    <option value="al">Alagoas</option> 
+    <option value="am">Amazonas</option> 
+    <option value="ap">Amapá</option> 
+    <option value="ba">Bahia</option> 
+    <option value="ce">Ceará</option> 
+    <option value="df">Distrito Federal</option> 
+    <option value="es">Espírito Santo</option> 
+    <option value="go">Goiás</option> 
+    <option value="ma">Maranhão</option> 
+    <option value="mt">Mato Grosso</option> 
+    <option value="ms">Mato Grosso do Sul</option> 
+    <option value="mg">Minas Gerais</option> 
+    <option value="pa">Pará</option> 
+    <option value="pb">Paraíba</option> 
+    <option value="pr">Paraná</option> 
+    <option value="pe">Pernambuco</option> 
+    <option value="pi">Piauí</option> 
+    <option value="rj">Rio de Janeiro</option> 
+    <option value="rn">Rio Grande do Norte</option> 
+    <option value="ro">Rondônia</option> 
+    <option value="rs">Rio Grande do Sul</option> 
+    <option value="rr">Roraima</option> 
+    <option value="sc">Santa Catarina</option> 
+    <option value="se">Sergipe</option> 
+    <option value="sp">São Paulo</option> 
+    <option value="to">Tocantins</option> 
+   </select>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <label for="cidade">Cidade: </label>
+   </td>
+   <td align="left">
+    <input type="text" name="cidade">
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <label for="cep">CEP: </label>
+   </td>
+   <td align="left">
+    <input type="text" name="cep" size="5" maxlength="5"> - <input type="text" name="cep2" size="3" maxlength="3">
+   </td>
+  </tr>
+ </table>
+</fieldset>
+<br />
+
+<!-- Dados do Produto-->
+<fieldset>
+ <legend>Dados do Produto</legend>
+ <table cellspacing="10">
+  <tr>
+   <td>
+    <label for="nome">Nome: </label>
+   </td>
+   <td align="left">
+    <input type="text" name="nome">
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <label for="imagem">Imagem do produto:</label>
+   </td>
+   <td>
+    <input type="file" name="imagem" >
+
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <label for="licença">Licença: </label>
+   </td>
+   <td align="left">
+    <input type="text" name="licença">
+   </td>
+  </tr>
+ </table>
+</fieldset>
+<br />
+<input type="submit">
+<input type="reset" value="Limpar">
+</form>
+</div>
+
+<div class="question_form" id="q2">
+<form id="form2" action="Script_do_Formulario_Relatorio.php" method="post">
+
+ <body><br />
+  <h3> Bem vindo à página do Produtor</h3> 
+  <h3> Preencha o formulário abaixo para pesquisar um produto na Agrochain</h3><br />
+
+<!-- Dados do Produto -->
+<fieldset>
+ <legend>Dados do Produto</legend>
+ <table cellspacing="10">
+  <tr>
+   <td>
+    <label for="nome">Nome: </label>
+   </td>
+   <td align="left">
+    <input type="text" name="nome">
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <label for="rg">Registro: </label>
+   </td>
+   <td align="left">
+    <input type="text" name="rg" size="13" maxlength="13"> 
+   </td>
+  </tr>
+ </table>
+</fieldset>
+<input type="submit" value="Pesquisar">
+<input type="reset" value="Limpar">
+</form>
+</div>
+
+    <script type="text/javascript">
+      //$(document).ready(function(){
+        //$("#CPF").mask("000.000.000-00")
+      //})
+      function Mudarestado(el) {
+        //style.display = 'none';
+      
+        //document.getElementById(el).classList.toggle('mostrar');
+        //troca texto do bottom
+        //document.getElementById('criarNovo').innerText = 'Submit';
+        //aparece form
+        if(el == 'q1'){
+          document.getElementById('q2').style.display = 'none';
+        }else{
+          document.getElementById('q1').style.display = 'none';
+        }
+        document.getElementById(el).style.display = 'block';
+        
+      }
+    </script>
+
+ </body>
+</html>
+
+{% endblock %}
+

@@ -7,3 +7,4 @@ class User(AbstractUser):
     Relation = (("Produtor",1),("Consumidor",2),("Transportador",3),("Processador",4),)
     TypeUser = forms.ChoiceField(label='Category', widget=forms.Select, choices=Relation)
     
+    

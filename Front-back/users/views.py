@@ -20,4 +20,4 @@ def FillprofileView(request):
         'form': form,
     }
 
-    return render(request, 'tamplates/fillprofile.html', context)
+    return render(request, 'templates/fillprofile.html', context)
