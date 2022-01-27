@@ -6,7 +6,7 @@ from pages.choices import *
 
 class User(AbstractUser):
     class Meta:
-        
+        user = model
     TypeUser = models.IntegerField(choices=Relation, default=0)    
     CNPJ = models.CharField(max_length=30, blank=True)
     organic_numb_certification = models.CharField(max_length=30, blank=True)
