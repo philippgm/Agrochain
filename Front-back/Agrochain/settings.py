@@ -28,7 +28,7 @@ DEBUG = True
 # ALLOWED_HOSTS = ["0.0.0.0"]
 
 SECRET_KEY = 'django-insecure-uq95)!^!8s&k&+09)x@1vcef)gt#g%1lpx!^!@4v$ryw$%c_6+'
-
+ 
 # Application definition
  
 INSTALLED_APPS = [
@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     # local
     "users.apps.UsersConfig",
     "pages.apps.PagesConfig",
+    "transaction.apps.TransactionConfig",
 ]
 
 MIDDLEWARE = [
