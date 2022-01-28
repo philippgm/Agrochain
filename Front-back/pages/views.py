@@ -24,7 +24,14 @@ def Fillprofileview(request):
         if form.is_valid():
             myuser.company_name = form.cleaned_data['company_name']
             myuser.organic_numb_certification = form.cleaned_data['organic_numb_certification']
+            myuser.CNPJ = form.cleaned_data['CNPJ']
             myuser.profile_set = True
+            myuser.city = form.cleaned_data['city']
+            myuser.first_name = form.cleaned_data['first_name']
+            myuser.last_name = form.cleaned_data['last_name']
+            myuser.state = form.cleaned_data['state']
+            myuser.country = form.cleaned_data['country']
+            myuser.birthday = form.cleaned_data['birthday']
             myuser.save()
             print(myuser.profile_set)
             print(myuser.username)

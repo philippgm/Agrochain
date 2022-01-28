@@ -6,8 +6,10 @@
 <div style="margin-left:25%;padding:1px 16px;height:1000px;">
 
 {% if request.user.profile_set %}
-    <h1>Seja Bem Vindo {{ user.username }}!</h1>
-    <h1>Nome completo: {{user.firstname}}</h1>
+    <h1>Seja Bem Vindo {{ user.first_name }}!</h1>
+    <h1>Nome completo: {{user.first_name}}{{last_name}}</h1>
+    <h3>Cidade: {{user.city}}   Estado:{{user.state}} Pais: {{user.country}}</h3>
+    <h3>Data de Nascimento: {{user.birthday}}</h3>
 {% else %}
 
     <h1> Prezado {{user.username}}!{{user.profile_set}}</h1>
