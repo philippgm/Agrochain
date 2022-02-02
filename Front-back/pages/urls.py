@@ -13,5 +13,6 @@ urlpatterns = [
     path("accounts/",views.HomePageView.as_view(), name="home"),
     path("accounts/profile/",views.ProfileView, name="profile"),
     path("fillprofile/",views.Fillprofileview, name="fillprofile"),
+    path("changeprofile/",views.Changeprofileview, name="changeprofile"),
     path("showprofile/",views.ProfileView, name="showprofile"),
 ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
