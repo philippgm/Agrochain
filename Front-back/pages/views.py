@@ -94,17 +94,10 @@ def ProfileView(request):
     user = User
     return render(request,"account/profile.html",{'User': User,})
 
-class ProdutorView(TemplateView):
-    template_name = "produtor.html"
+def CreatorView(request):
+    user = User
+    return render(request,"creator.html",{'User': User,})
 
-class TransportadorView(TemplateView):
-    template_name = "transportador.html"
-
-class ProcessadorView(TemplateView):
-    template_name = "processador.html"
-
-class DistribuidorView(TemplateView):
-    template_name = "distribuidor.html"
-
-class ConsumidorView(TemplateView):
-    template_name = "consumidor.html"
+def EndUserView(request):
+    user = User
+    return render(request,"enduser.html",{'User': User,})  
