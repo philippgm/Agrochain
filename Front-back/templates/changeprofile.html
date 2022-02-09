@@ -10,7 +10,7 @@
 {% endblock %}
 {% block content %}
 <h1>Preencha o formulário a seguir</h1>
-<form action="/fillprofile/" method="POST">
+<form action="/changeprofile/" method="POST">
     {% csrf_token %}
     {{ form|crispy }}
     <input type="submit" value="Enviar" />

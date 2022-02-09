@@ -3,7 +3,7 @@ from pickle import TRUE
 from pyexpat import model
 from django.db import models
 from users.models import User
-from pages.choices import *
+from pages.choices import type_transactions
 
 class Transaction(models.Model):
     timestamp = models.DateTimeField(auto_now=True)

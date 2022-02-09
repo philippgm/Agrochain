@@ -3,7 +3,8 @@ from django import forms
 from django.contrib.auth.models import AbstractUser
 from django.db import models
 from pages.choices import *
-
+from django.http import request
+from django.shortcuts import render
 class User(AbstractUser):
 
     TypeUser = models.IntegerField(choices=Relation, default=0)    
@@ -14,4 +15,5 @@ class User(AbstractUser):
     city = models.CharField(max_length=30, blank=True)
     state  = models.CharField(max_length=30, blank=True)
     country = models.CharField(max_length=30, blank=True)
-    birthday = models.DateField(auto_now=True)
+    birthday = models.DateField(blank=True)
+

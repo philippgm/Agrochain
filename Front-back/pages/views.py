@@ -20,7 +20,6 @@ def Fillprofileview(request):
         # Create a form instance and populate it with data from the request (binding):
         myuser = get_object_or_404(User, pk=request.user.id)
         form = FillProfileForms(request.POST)
-        
         # Check if the form is valid:
         if form.is_valid():
             myuser.company_name = form.cleaned_data['company_name']
@@ -34,8 +33,6 @@ def Fillprofileview(request):
             myuser.country = form.cleaned_data['country']
             myuser.birthday = form.cleaned_data['birthday']
             myuser.save()
-            print(myuser.profile_set)
-            print(myuser.username)
             return HttpResponseRedirect('/showprofile/')
     # If this is a GET (or any other method) create the default form.
     else:
@@ -54,10 +51,8 @@ def Changeprofileview(request):
 
         # Create a form instance and populate it with data from the request (binding):
         myuser = get_object_or_404(User, pk=request.user.id)
-        print("ddddddddddddddddddddddddddddddddd")
         form = ChangeProfileForms(request.POST)
-        
-        # Check if the form is valid:
+                # Check if the form is valid:
         if form.is_valid():
             myuser.company_name = form.cleaned_data['company_name']
             myuser.organic_numb_certification = form.cleaned_data['organic_numb_certification']
@@ -68,15 +63,9 @@ def Changeprofileview(request):
             myuser.last_name = form.cleaned_data['last_name']
             myuser.state = form.cleaned_data['state']
             myuser.country = form.cleaned_data['country']
-            print(myuser.birthday)
             myuser.birthday = form.cleaned_data['birthday']
-            print(myuser.birthday)
-            print("OOOOOOOOOOOOOOOOOi")
             myuser.save()
-            print(myuser.profile_set)
-            print(myuser.birthday)
-            print(myuser.username)
-            return HttpResponseRedirect('/showprofile/')
+            return HttpResponseRedirect('/main/')
     # If this is a GET (or any other method) create the default form.
     else:
         form = ChangeProfileForms()
@@ -84,7 +73,6 @@ def Changeprofileview(request):
     context = {
         'form': form,
     }
-
     return render(request,'changeprofile.html', {
         'form': form,
     })
@@ -108,3 +96,10 @@ class DistribuidorView(TemplateView):
 
 class ConsumidorView(TemplateView):
     template_name = "consumidor.html"
+
+class MainView(TemplateView):
+    template_name = "main.html"
+
+def how(request):
+    user = User
+    return render(request,"main.html",{'User': User,})
