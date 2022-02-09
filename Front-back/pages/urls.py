@@ -15,5 +15,10 @@ urlpatterns = [
     path("fillprofile/",views.Fillprofileview, name="fillprofile"),
     path("changeprofile/",views.Changeprofileview, name="changeprofile"),
     path("showprofile/",views.ProfileView, name="showprofile"),
+
     path("main/",views.how, name="main"),
+
+    path("creator/",views.CreatorView, name="creator"),
+    path("enduser/",views.EndUserView, name="enduser"),
+
 ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

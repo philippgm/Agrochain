@@ -1,0 +1,137 @@
+{% extends 'base.html' %}
+
+{% block title %}Agrochain{% endblock %}
+
+{% block content %}
+
+
+<style>
+.question_form {
+    display: none;
+    padding: 20px;
+}
+.botao{
+    background-color:rgba(86, 148, 150, 0.952);
+    border:inherit;
+    padding:10px 20px;
+    margin-right: 15px;
+    margin-top: 25px;
+    font-size: 17px;
+    color:white;
+}
+.botao:hover{
+    background-color:rgba(23, 141, 96, 0.952);
+    color:black;
+}
+.question_form .form-group .textarea{
+    height: 5em;
+    vertical-align: top;
+}
+</style>
+
+<body>
+    <header>
+        <div class="container">
+            <h2>Seja Bem Vindo {{ user.first_name }}!</h2>
+            <div class="botoes">
+                <button onclick = "Mudarestado('q1')" role="button" class="botao">
+                    Pesquisar Produto
+                </button>
+                <button onclick = "Mudarestado('q2')" role="button" class="botao">
+                    Crítica, elogio ou sugestão
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <div class="question_form" id="q1">
+        <form id="form1"  method="get">
+            <h2>Preencha o formulário para pesquisar um produto na Agrochain</h2><br />
+            <input type="hidden" >
+            <div id="div_id_product_name" class="form-group">
+                <label for="id_product_name" class=" ">
+                    Nome do produto
+                </label>
+                <div class="">
+                    <input type="text" name="product_name" placeholder="Nome do produto" autocomplete="product_name" minlength="1" maxlength="150" class="textinput textInput form-control"  id="id_product_name">
+                </div>
+            </div>
+            <div id="div_id_registro" class="form-group">
+                <label for="id_registro" class="requiredField">
+                    ID do produto
+                    <span class="asteriskField">*</span>
+                </label>
+                <div class="">
+                    <input type="text" name="registro" placeholder="ID do produto" autocomplete="registro" class="textinput textInput form-control" required id="id_registro">
+                </div>
+            </div>
+
+            <button class="btn btn-success" type="submit">Pesquisar</button>
+            <button class="btn btn-success" type="reset">Limpar</button><br />
+
+            <br /><h2>Ou utilize o QRCode do produto</h2><br />
+            <button class="btn btn-success" type="submit">QRCode</button>
+
+        </form>
+    </div>
+
+    <div class="question_form" id="q2">
+        <h2>Escreva sua crítica, elogio ou sugestão para um produto na Agrochain</h2><br />
+        <form id="form2" method="post">
+            <input type="hidden" name="csrfmiddlewaretoken" value="XZJiAN6J327Ff0aqpbnZ9cfBZn4kmkQ2Yhp2kIXJAD2JaHf8WgWFIi6yaGEj5AjZ">
+            <div id="div_id_registro" class="form-group">
+                <label for="id_registro" class="requiredField">
+                    ID do produto
+                    <span class="asteriskField">*</span>
+                </label>
+                <div class="">
+                    <input type="text" name="registro" placeholder="ID do produto" autocomplete="registro" class="textinput textInput form-control" required id="id_registro">
+                </div>
+            </div>
+            <div id="div_id_TypeMessage" class="form-group">
+                <label for="id_TypeMessage" class=" requiredField">
+                    Tipo de mensagem
+                    <span class="asteriskField">*</span>
+                </label>
+                <div class="">
+                    <select name="TypeMessage" class="select form-control" required id="id_TypeMessage">
+                        <option value="0"></option>
+                        <option value="1">Crítica</option>
+                        <option value="2">Elogio</option>
+                        <option value="3">Sugestão</option>
+                    </select>
+                </div>
+                <div id="div_id_message" class="form-group">
+                    <label for="id_message" class="requiredField">
+                        Sua mensagem
+                        <span class="asteriskField">*</span>
+                    </label>
+                    <div class="">
+                        <textarea name="message" placeholder="Mensagem" class = "textarea" required id="id_message"></textarea>
+                    </div>
+                </div>                
+            </div>
+
+            <button class="btn btn-success" type="submit">Enviar</button>
+            <button class="btn btn-success" type="reset">Limpar</button>
+        </form>
+
+    </div>
+
+    <script type="text/javascript">
+        function Mudarestado(el) {
+            if(el == 'q1'){
+                document.getElementById('q2').style.display = 'none';
+            }
+            if(el == 'q2'){
+                document.getElementById('q1').style.display = 'none';
+            }
+            document.getElementById(el).style.display = 'block';
+      }
+    </script>
+
+
+</body>
+
+
+{% endblock %}

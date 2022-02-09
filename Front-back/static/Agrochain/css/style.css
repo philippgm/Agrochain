@@ -1,3 +1,66 @@
+/*Variáveis de cor*/
+:root{
+    --vermelho:#E50914;
+    --preta:#141414;
+}
+
+/*Reset - padronizar o layout nos navegadores*/
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+/*elementos base*/
+body{
+   background: white;
+   font-family: 'Arial', Times, serif;
+   color:rgb(0, 0, 0);
+}
+
+header .container{
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    
+}
+
+header .logo{
+    margin-left: 5px;
+    color: var(--vermelho);
+    font-family: 'Arial Black', Times;
+    font-size:40px;
+}
+
+header nav a{
+    text-decoration:none;
+    color:rgb(8, 3, 3);
+    margin-right: 10px;
+}
+
+header nav a:hover{
+    color:rgb(88, 190, 84);
+}
+
+header .botao{
+    background-color: rgba(30, 160, 80, 0.39);
+    border:none;
+    color: white;
+
+    padding:15px 30px;
+    margin-right: 15px;
+    font-size: 20px;
+
+    cursor: pointer;
+    transition: .3s ease all;
+}
+
+header .botao:hover{
+    background-color:rgba(30, 160, 80, 0.39);
+    color:black;
+}
+
 /* ul {
     list-style-type: none;
     margin: 0;
@@ -5,7 +68,7 @@
     overflow: hidden;
     background-color: #333;
   } */
-  
+ 
   /* li {
     float: left;
   }
