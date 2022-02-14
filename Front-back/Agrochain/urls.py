@@ -25,4 +25,5 @@ urlpatterns = [
     path("accounts/", include("allauth.urls")),
 
     path("", include("pages.urls", namespace="pages")),
+    path("main/", include("product.urls", namespace="product")),
 ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

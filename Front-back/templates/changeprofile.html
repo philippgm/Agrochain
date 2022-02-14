@@ -12,8 +12,75 @@
 <h1>Preencha o formulário a seguir</h1>
 <form action="/changeprofile/" method="POST">
     {% csrf_token %}
-    {{ form|crispy }}
-    <input type="submit" value="Enviar" />
+    <!-- {{ form|crispy }} -->
+    <div class="form-row">
+        <div class="col">
+            {{form.first_name.errors}}
+            <label for="validationCustom01">{{form.first_name.label}}</label>
+            {{ form.first_name }}
+        </div>
+        <div class="col">
+            {{form.last_name.errors}}
+            <label for="validationCustom01">{{form.last_name.label}}</label>
+            {{ form.last_name }}
+        </div>
+        <div class="col">
+            
+            <label for="validationCustom01">{{form.birthday.label}}</label>
+            {{form.birthday }}
+            {% if form.birthday.errors %}
+            <div class="invalid-feedback">
+                Digite uma data válida
+            </div>
+            {% endif %}
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="col">
+            {{form.city.errors}}
+            <label for="validationCustom01">{{form.city.label}}</label>
+            {{ form.city }}
+        </div>
+        <div class="col">
+            {{form.state.errors}}
+            <label for="validationCustom01">{{form.state.label}}</label>
+            {{ form.state }}
+        </div>
+        <div class="col">
+            {{form.country.errors}}
+            <label for="validationCustom01">{{form.country.label}}</label>
+            {{ form.country }}
+        </div>
+      </div>
+    {% if request.user.TypeUser !=  2%}
+    <div class="form-row">
+        {% if request.user.TypeUser !=  1%}
+        <div class="col">
+            <label for="validationCustom01">{{form.company_name.label}}</label>
+            {{form.company_name}}
+            {{form.company_name.erros}}
+        </div>
+        {% endif %} 
+        <div class="col">
+            <label for="validationCustom01">{{form.CNPJ.label}}</label>
+            {{form.CNPJ}}
+            {{form.CNPJ.erros}}
+        </div>
+        
+    </div>
+    {% endif %} 
+    {% if request.user.TypeUser ==  1%}
+    <div class="row">
+            
+            <div class="col">
+                <label for="validationCustom01">{{form.organic_numb_certification.label}}</label>
+                {{form.organic_numb_certification}}
+                {{form.organic_numb_certification.erros}}
+            </div>
+            
+    </div>
+    {% endif %}
+    <button class="btn btn-primary" type="submit">Enviar</button>
 </form>
 
 

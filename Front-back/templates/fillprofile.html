@@ -12,7 +12,14 @@
 <h1>Preencha o formulário a seguir</h1>
 <form action="/fillprofile/" method="POST">
     {% csrf_token %}
-    {{ form|crispy }}
+    <!-- <p><label for="first_name">Subject:</label>
+        <input id="id_subject" type="text" name="subject" maxlength="100" /></p>
+    <p><label for="id_last_name">Message:</label>
+        <input type="text" name="message" id="id_message" /></p>
+    <p><label for="id_CNPJ">Sender:</label>
+        <input type="text" name="sender" id="id_sender" /></p>
+    <p><label for="id_is_organic">Cc myself:</label>
+        <input type="checkbox" name="cc_myself" id="id_cc_myself" /></p> -->
     <input type="submit" value="Enviar" />
 </form>
 

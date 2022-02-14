@@ -2,73 +2,59 @@ import profile
 import django.contrib.staticfiles
 from django.forms import forms 
 from django.views.generic import TemplateView
-from .forms import FillProfileForms
+from .forms import ChangeProfileProdutorForms, FillProfileForms
 from django.shortcuts import render
 from django.http import HttpRequest, HttpResponse, request
 from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from users.models import User
 from django.shortcuts import get_object_or_404
-from pages.forms import ChangeProfileForms
+from pages.forms import *
+from pages.choices import *
 
 class HomePageView(TemplateView):
     template_name = "home.html"
-@login_required
-def Fillprofileview(request):
-    if request.method == 'POST':
 
-        # Create a form instance and populate it with data from the request (binding):
-        myuser = get_object_or_404(User, pk=request.user.id)
-        form = FillProfileForms(request.POST)
-        # Check if the form is valid:
-        if form.is_valid():
-            myuser.company_name = form.cleaned_data['company_name']
-            myuser.organic_numb_certification = form.cleaned_data['organic_numb_certification']
-            myuser.CNPJ = form.cleaned_data['CNPJ']
-            myuser.profile_set = True
-            myuser.city = form.cleaned_data['city']
-            myuser.first_name = form.cleaned_data['first_name']
-            myuser.last_name = form.cleaned_data['last_name']
-            myuser.state = form.cleaned_data['state']
-            myuser.country = form.cleaned_data['country']
-            myuser.birthday = form.cleaned_data['birthday']
-            myuser.save()
-            return HttpResponseRedirect('/showprofile/')
-    # If this is a GET (or any other method) create the default form.
-    else:
-        form = FillProfileForms()
-
-    context = {
-        'form': form,
-    }
-
-    return render(request,'fillprofile.html', {
-        'form': form,
-    })
 @login_required
 def Changeprofileview(request):
+    myuser = get_object_or_404(User, pk=request.user.id)
     if request.method == 'POST':
 
-        # Create a form instance and populate it with data from the request (binding):
-        myuser = get_object_or_404(User, pk=request.user.id)
-        form = ChangeProfileForms(request.POST)
+        if myuser.TypeUser == 1:
+            form = ChangeProfileProdutorForms(request.POST)
+        elif myuser.TypeUser == 2:
+            form = ChangeProfileTransportadorForms(request.POST)
+        elif myuser.TypeUser == 3:
+            form = ChangeProfileProcessadorForms(request.POST)
+        else :
+            form = ChangeProfileConsumidorForms(request.POST)
                 # Check if the form is valid:
         if form.is_valid():
-            myuser.company_name = form.cleaned_data['company_name']
-            myuser.organic_numb_certification = form.cleaned_data['organic_numb_certification']
-            myuser.CNPJ = form.cleaned_data['CNPJ']
-            myuser.profile_set = True
-            myuser.city = form.cleaned_data['city']
-            myuser.first_name = form.cleaned_data['first_name']
-            myuser.last_name = form.cleaned_data['last_name']
-            myuser.state = form.cleaned_data['state']
-            myuser.country = form.cleaned_data['country']
-            myuser.birthday = form.cleaned_data['birthday']
-            myuser.save()
+            if myuser.TypeUser == 1:
+                myuser.organic_numb_certification = form.cleaned_data['organic_numb_certification']
+                myuser.CNPJ = form.cleaned_data['CNPJ']
+                myuser.profile_set = True
+                myuser.city = form.cleaned_data['city']
+                myuser.first_name = form.cleaned_data['first_name']
+                myuser.last_name = form.cleaned_data['last_name']
+                myuser.state = form.cleaned_data['state']
+                myuser.country = form.cleaned_data['country']
+                myuser.birthday = form.cleaned_data['birthday']
+                
+                myuser.save()
+            
             return HttpResponseRedirect('/main/')
     # If this is a GET (or any other method) create the default form.
     else:
-        form = ChangeProfileForms()
+        # myuser = get_object_or_404(User, pk=request.user.id)
+        if myuser.TypeUser == 1:
+            form = ChangeProfileProdutorForms()
+        elif myuser.TypeUser == 2:
+            form = ChangeProfileTransportadorForms()
+        elif myuser.TypeUser == 3:
+            form = ChangeProfileProcessadorForms()
+        else :
+            form = ChangeProfileConsumidorForms()
 
     context = {
         'form': form,

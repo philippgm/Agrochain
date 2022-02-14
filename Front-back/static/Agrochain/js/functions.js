@@ -16,4 +16,16 @@ function Mudarestado(el) {
     }
     document.getElementById(el).style.display = 'block';
 }
+
+function MyTypeTransactions(type){
+if (type == 1){
+    return produtor_transactions
+}else {if (type == 2){
+    return consumidor_transactions
+}else {if (type == 3){
+    return transportador_transactions
+}else{
+    return processador_transations
+}}}
+}
  
