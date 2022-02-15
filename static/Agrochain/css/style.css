@@ -1,0 +1,93 @@
+header .container{
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    
+}
+
+header .logo{
+    margin-left: 5px;
+    color: var(--vermelho);
+    font-family: 'Arial Black', Times;
+    font-size:40px;
+}
+
+header nav a{
+    text-decoration:none;
+    color:rgb(8, 3, 3);
+    margin-right: 10px;
+}
+
+header nav a:hover{
+    color:rgb(88, 190, 84);
+}
+
+header .botao{
+    background-color: rgba(30, 160, 80, 0.39);
+    border:none;
+    color: white;
+
+    padding:15px 30px;
+    margin-right: 15px;
+    font-size: 20px;
+
+    cursor: pointer;
+    transition: .3s ease all;
+}
+
+header .botao:hover{
+    background-color:rgba(30, 160, 80, 0.39);
+    color:black;
+}
+
+
+.vertical-menu {
+  width: 200px; /* Set a width if you like */
+}
+
+.vertical-menu a {
+  background-color: #eee; /* Grey background color */
+  color: black; /* Black text color */
+  display: block; /* Make the links appear below each other */
+  padding: 12px; /* Add some padding */
+  text-decoration: none; /* Remove underline from links */
+}
+
+.vertical-menu a:hover {
+  background-color: #ccc; /* Dark grey background on mouse-over */
+}
+
+.vertical-menu a.active {
+  background-color: #04AA6D; /* Add a green color to the "active/current" link */
+  color: white;
+}
+.itemspesquisa{
+  background-color: white;
+}
+
+.teste{
+
+  background-color: rgb(233, 222, 222);
+  padding: 30px 20px 30px 20px;
+  /* border: 2px dotted blue; */
+  gap: 10px;
+  width: 600px;
+  height: 200px;
+  overflow: scroll;
+}
+body {
+   background-color: lightblue;
+
+}
+.grid-container {
+  display: grid;
+  grid-template-columns: 600px;
+  grid-template-rows: 200px;  
+  grid-gap: 10px;
+  background-color: white;
+  padding: 10px;
+  overflow: scroll;
+}
+
+
