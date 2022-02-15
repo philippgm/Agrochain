@@ -1,0 +1,38 @@
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% load crispy_forms_tags %}
+
+{% block title %}Cadastra Produto{% endblock %}
+
+{% block styles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'Agrochain/css/style.css' %}">
+{% endblock %}
+{% block content %}
+<div class="form-row">
+    <div class="col">
+        <form action="../pesquisarproduto/" method="POST">
+            {% csrf_token %}
+            {{ form|crispy }}
+            <input type="submit" value="Enviar" />
+        </form>
+    </div>
+    <div class="grid-container">
+    {% if Result != None %}
+        {% for i in Result %}
+            <div class="teste">
+                <p>Produto: {{i.tipo}}      </p>
+                <p>Quantidade: {{i.quantidade}}</p>
+                <p>Data de criação: {{i.data_criacao }}</p>
+                <p>Descrição: {{i.descricao}}</p>
+                <a type="submit" href="{{ i.get_absolute_url }}"> Mais informações </a>
+            </div>
+        {%endfor%}
+    {%else%}
+            <p>Sua pesquisa retornou 0 resultados</p>
+    {%endif%}
+    </div>
+</div>
+{% endblock %}
+

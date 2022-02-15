@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'main.html' %}
 {% load static %}
 
 {% load crispy_forms_tags %}
@@ -21,11 +21,12 @@
         {%endif%}
 </div>
 <div class="col">
-{% for i in Result %}
-    <p>Data de criação: {{i.data_criacao }}</p>
-
-
-{%endfor%}
+    <h1>Preencha o formulário a seguir</h1>
+<form action="../cadastrarproduto/" method="POST">
+    {% csrf_token %}
+    {{ form|crispy }}
+    <input type="submit"  value="Enviar" />
+</form>
 </div>
 </div>
 

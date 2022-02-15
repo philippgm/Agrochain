@@ -1,0 +1,23 @@
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% load crispy_forms_tags %}
+
+{% block title %}Cadastra Produto{% endblock %}
+
+{% block styles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'Agrochain/css/style.css' %}">
+{% endblock %}
+{% block content %}
+
+    <div>
+        <p> <b> Produto:</b> {{produto.tipo}}      </p>
+        <p><b>Quantidade:</b> {{produto.quantidade}}</p>
+        <p><b>Data de criação:</b> {{produto.data_criacao }}</p>
+        <p><b>Descrição:</b> {{produto.descricao}}</p>
+        <p><b>Produtor:</b> {{produtor.first_name}} {{produtor.last_name}}</p>
+        <p><b>Cidade:</b> {{produtor.city}}</p>  <p><b>Estado: </b>{{produtor.state}}</p>   <p><b>País:</b> {{produtor.country}}</p>
+    </div>
+
+{% endblock %}
