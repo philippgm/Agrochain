@@ -23,14 +23,14 @@ class User(AbstractUser):
     # ts = [("Anunciar","Checkout","Checkin","Vender","Comprar","Consultar"),("Checkout","Checkin","Consultar"),("Checkout","Checkin","Consultar"),("Checkout","Checkin","Consultar")]
 
 class Produtor(models.Model):
-    userProdutor = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     # transactions = models.ForeignKey(on_delete=models.CASCADE)
 
 class Consumidor(models.Model):
-    userProdutor = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
 
 class Transportador(models.Model):
-    userProdutor = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
 
 class Processador(models.Model):
-    userProdutor = models.ForeignKey(User, on_delete=models.CASCADE)   
+    user = models.ForeignKey(User, on_delete=models.CASCADE)   

@@ -51,3 +51,11 @@ class ChangeProfileProcessadorForms(forms.Form):
         state  = forms.CharField(label ='Estado',max_length=30,widget=forms.TextInput(attrs={'placeholder': 'Estado'}))
         country = forms.CharField(label ='País',max_length=30,widget=forms.TextInput(attrs={'placeholder': 'País'}))
         birthday = forms.DateField(label = 'Data de Nascimento',widget=forms.TextInput(attrs={'placeholder': 'DD/MM/AAAA'}))
+
+class ChangeProfileConsumidorForms(forms.Form):
+        first_name = forms.CharField(label ='Nome',max_length=30,widget=forms.TextInput(attrs={'placeholder': 'Nome'}))
+        last_name = forms.CharField(label ='Sobrenome',max_length=30,widget=forms.TextInput(attrs={'placeholder': 'Sobrenome'}))
+        city = forms.CharField(label ='Cidade',max_length=30,widget=forms.TextInput(attrs={'placeholder': 'Cidade'}))
+        state  = forms.CharField(label ='Estado',max_length=30,widget=forms.TextInput(attrs={'placeholder': 'Estado'}))
+        country = forms.CharField(label ='País',max_length=30,widget=forms.TextInput(attrs={'placeholder': 'País'}))
+        birthday = forms.DateField(label = 'Data de Nascimento',widget=forms.TextInput(attrs={'placeholder': 'DD/MM/AAAA'}))

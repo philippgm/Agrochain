@@ -6,11 +6,13 @@ from pages.choices import *
 
 class CadastrarProdutoForms(forms.Form):
     tipo = forms.CharField(label = "Tipo",max_length=30)
-    quantidade = forms.IntegerField(label = "Quantidade")
-    descricao = forms.CharField(label = "Descrição")
+    quantidade = forms.CharField(label = "Quantidade (unidade)")
+    descricao = forms.CharField(label = "Descrição",widget=forms.Textarea)
     datafabricacao = forms.DateField(label = "Data de Fabricação")
-    tempovalidade = forms.IntegerField(label = "Tempo de validade")
+    tempovalidade = forms.CharField(label = "Tempo de validade (dias)")
+    preco = forms.IntegerField(label = "Preço (R$)")
+
 
 class PesquisarProdutoForms(forms.Form):
-    tipo_pesquisa = forms.ChoiceField(label='Pesquisa', widget=forms.Select, choices=tipos_pesquisas)
+    tipo_pesquisa = forms.ChoiceField(label='Opção de Pesquisa', widget=forms.Select, choices=tipos_pesquisas)
     pesquisa = forms.CharField(label="Produto")

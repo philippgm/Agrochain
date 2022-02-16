@@ -4,7 +4,7 @@
 
 {% load crispy_forms_tags %}
 
-{% block title %}Cadastra Produto{% endblock %}
+{% block title %}Checklist{% endblock %}
 
 {% block styles %}
     <link rel="stylesheet" type="text/css" href="{% static 'Agrochain/css/style.css' %}">
@@ -12,7 +12,7 @@
 {% block content %}
 <div class="form-row">
     <div class="col">
-        <form action="../pesquisarproduto/" method="POST">
+        <form action="../checkin/" method="POST">
             {% csrf_token %}
             {{ form|crispy }}
             <input type="submit" value="Enviar" />
@@ -22,12 +22,11 @@
     {% if Result != None %}
         {% for i in Result %}
             <div class="teste">
-                <p>Produto: {{i.tipo}}     </p>
-                <p>Status:{{i.status}} </p>
+                <p>Produto: {{i.tipo}}      </p>
                 <p>Quantidade: {{i.quantidade}}</p>
                 <p>Data de criação: {{i.data_criacao }}</p>
                 <p>Descrição: {{i.descricao}}</p>
-                <a type="submit" href="{{ i.get_absolute_url }}"> Mais informações </a>
+                <a class="btn btn-success" type="submit" style="background-color: blue;" href="{{ i.get_checklist_url }}"> Transportar </a>
             </div>
         {%endfor%}
     {%else%}

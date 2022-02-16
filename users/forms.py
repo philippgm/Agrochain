@@ -18,12 +18,12 @@ class SignupForm(forms.Form):
     def signup(self, request, user):
         user.TypeUser = self.cleaned_data['TypeUser']
         if user.TypeUser == 1:
-            Produtor.objects.create(userProdutor = user)
+            Produtor.objects.create(user = user)
         elif user.TypeUser == 2:
-            Consumidor.objects.create(userProdutor = user)
+            Consumidor.objects.create(user = user)
         elif user.TypeUser == 3:
-            Transportador.objects.create(userProdutor = user)
+            Transportador.objects.create(user = user)
         else:
-            Processador.objects.create(userProdutor = user)
+            Processador.objects.create(user = user)
         user.save()
 

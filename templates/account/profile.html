@@ -1,31 +1,42 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block title %}Perfil{% endblock %}
 
+{% block styles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'Agrochain/css/style.css' %}">
+{% endblock %}
+
 {% block content %}
-<div style="margin-left:25%;padding:10px 16px;height:1000px;">
+<div style="display: grid;grid-template-columns: auto auto auto;">
+    <div>
+    </div>
+    <div class="item1">
+        {% if request.user.profile_set %}
+            {% if user.TypeUser == 1 %}
+                <h1 style="text-align: center;">Dados do usuário</h1><br/>
+                <p>Nome: {{user.first_name}}{{last_name}}</p>
+                <p>Localidade: {{user.city}}, {{user.state}} - {{user.country}}</p>
+                <p>Data de Nascimento: {{user.birthday}}</p><br />        
+                
+            {% else %}
+            <h1 style="text-align: center;">Dados do usuário</p><br/>
+                <p>Nome: {{user.first_name}}{{last_name}}</p>
+                <p>Empresa: {{user.company_name}}</p>
+                <p>CNPJ: {{user.CNPJ}}</p>
+                <p>Localidade: {{user.city}}, {{user.state}} - {{user.country}}</p>
+                <p>Data de Nascimento: {{user.birthday}}</p><br />       
 
-    {% if request.user.profile_set %}
-        {% if user.TypeUser == 2 %}
-            <h1>Seja Bem Vindo {{ user.first_name }}!</h1><br />
-            <h3>Nome: {{user.first_name}}{{last_name}}</h3>
-            <h3>Localidade: {{user.city}}, {{user.state}} - {{user.country}}</h3>
-            <h3>Data de Nascimento: {{user.birthday}}</h3><br />        
-            <a class="btn btn-success" href="{% url 'pages:enduser' %}">Ir para página do usuário</a>
+            {% endif %}
+            <a class="btn btn-success" href="{% url 'pages:main' %}">Ir para página do usuário</a>
         {% else %}
-            <h1>Seja Bem Vindo {{ user.first_name }}!</h1><br />
-            <h3>Nome: {{user.first_name}}{{last_name}}</h3>
-            <h3>Empresa: {{user.company_name}}</h3>
-            <h3>CNPJ: {{user.CNPJ}}</h3>
-            <h3>Localidade: {{user.city}}, {{user.state}} - {{user.country}}</h3>
-            <h3>Data de Nascimento: {{user.birthday}}</h3><br />       
-            <a class="btn btn-success" href="{% url 'pages:creator' %}">Ir para página do usuário</a>
-        {% endif %}
-    {% else %}
-        <h2>Prezado {{user.username}},</h2>
-        <p>É necessário que você atualize seus dados!</p>
-        <a class="btn btn-success" href="{% url 'pages:changeprofile' %}">Ok</a>
+            <h2>Prezado {{user.username}},</h2>
+            <p>É necessário que você atualize seus dados!</p>
+            <a class="btn btn-success" href="{% url 'pages:changeprofile' %}">Ok</a>
 
-    {% endif %}
+        {% endif %}
+    </div>
+    <div>
+    </div>
 </div>
 {% endblock %}
+

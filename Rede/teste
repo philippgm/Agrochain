@@ -11,7 +11,7 @@ services:
       args:
         - ACCOUNT_PASSWORD=${ACCOUNT_PASSWORD1}
     command:
-      --nodiscover
+      
       --nodekeyhex="b0ac22adcad37213c7c565810a50f1772291e7b0ce53fb73e7ec2a3c75bc13b5"
 
       --ipcdisable
@@ -42,15 +42,37 @@ services:
     networks:
       priv-eth-net:
 
+  geth-bootnode2:
+    hostname: geth-bootnode2
+    env_file:
+      - .env
+    image: geth-client
+    depends_on:
+      - geth-bootnode1
+    build:
+      context: .
+      args:
+        - ACCOUNT_PASSWORD=${ACCOUNT_PASSWORD2}
+    command:
+
+      --nodekeyhex="dc90f8f7324f1cc7ba52c4077721c939f98a628ed17e51266d01c9cd0294033a"
+
+      --ipcdisable
+      --networkid=${NETWORK_ID}
+      --netrestrict="172.16.254.0/28"
+    networks:
+      priv-eth-net:
+
   geth-rpc-endpoint2:
     hostname: geth-rpc-endpoint2
     env_file:
       - .env
     image: geth-client
     depends_on:
-      - geth-bootnode1   
+      - geth-bootnode1
+      - geth-bootnode2   
     command:
-      --bootnodes="enode://af22c29c316ad069cf48a09a4ad5cf04a251b411e45098888d114c6dd7f489a13786620d5953738762afa13711d4ffb3b19aa5de772d8af72f851f7e9c5b164a@geth-bootnode1:30303"
+      --bootnodes="enode://890b6b5367ef6072455fedbd7a24ebac239d442b18c5ab9d26f58a349dad35ee5783a0dd543e4f454fed22db9772efe28a3ed6f21e75674ef6203e47803da682@geth-bootnode2:30303"
       --allow-insecure-unlock
       --http
       --http.addr="0.0.0.0"
@@ -70,8 +92,10 @@ services:
     image: geth-client
     depends_on:
       - geth-bootnode1
+      - geth-bootnode2
     command:
       --bootnodes="enode://af22c29c316ad069cf48a09a4ad5cf04a251b411e45098888d114c6dd7f489a13786620d5953738762afa13711d4ffb3b19aa5de772d8af72f851f7e9c5b164a@geth-bootnode1:30303"
+      --bootnodes="enode://890b6b5367ef6072455fedbd7a24ebac239d442b18c5ab9d26f58a349dad35ee5783a0dd543e4f454fed22db9772efe28a3ed6f21e75674ef6203e47803da682@geth-bootnode2:30303"
       --mine
       --miner.threads=1
       --networkid=${NETWORK_ID}
@@ -85,3 +109,4 @@ networks:
     ipam:
       config:
       - subnet: 172.16.254.0/28
+

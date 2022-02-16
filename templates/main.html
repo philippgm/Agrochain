@@ -11,22 +11,16 @@
     {% if user.TypeUser == 1 %}
         <a href="{% url 'product:cadastrarproduto' %}" >Cadastrar Produto</a>
         <a href="{% url 'product:pesquisarproduto' %}" >Pesquisar Produto</a>
-        <a href="#">Checkout</a>
-        <a href="#">Checkin</a>
-        <a href="#">Vender</a>
-        <a href="#">Comprar</a>
+        <a href="{% url 'product:comprarproduto' %}">Comprar</a>
     {% elif user.TypeUser == 3 %}
 
         <a href="{% url 'product:pesquisarproduto' %}" >Pesquisar Produto</a>
-        <a href="#">Checkout</a>
-        <a href="#">Checkin</a>
-    {% elif user.TypeUser == 1 %}
+        <a href="{% url 'product:checkin' %}">Checklist</a>
+        <a href="{% url 'product:checkout' %}">Checkout</a>
+    {% elif user.TypeUser == 4 %}
         <a href="{% url 'product:cadastrarproduto' %}" >Cadastrar Produto</a>
         <a href="{% url 'product:pesquisarproduto' %}" >Pesquisar Produto</a>
-        <a href="#">Checkout</a>
-        <a href="#">Checkin</a>
-        <a href="#">Vender</a>
-        <a href="#">Comprar</a>
+        <a href="{% url 'product:comprarproduto' %}">Comprar</a>
     {% else %}
         <a href="{% url 'product:pesquisarproduto' %}" >Pesquisar Produto</a>
     {%endif%}

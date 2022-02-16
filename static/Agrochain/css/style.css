@@ -41,7 +41,48 @@ header .botao:hover{
     color:black;
 }
 
+.itemspesquisa{
+  background-color: white;
+}
 
+.teste{
+
+  background-color: rgb(233, 222, 222);
+  padding: 30px 20px 30px 20px;
+  gap: 10px;
+  width: 600px;
+  height: 200px;
+  overflow: scroll;
+}
+body {
+   background-color: lightblue;
+  
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 600px;
+  grid-template-rows: 600px;  
+  grid-gap: 10px;
+  background-color: white;
+  padding: 10px;
+  overflow: scroll;
+} 
+.grid-container-relatorio{
+
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-template-rows: 1000px;  
+  grid-gap: 10px;
+  padding: 10px;
+
+}
+
+.item1 {
+  background-color: white;
+  overflow: scroll;
+  padding: 15px;
+} 
 .vertical-menu {
   width: 200px; /* Set a width if you like */
 }
@@ -62,32 +103,3 @@ header .botao:hover{
   background-color: #04AA6D; /* Add a green color to the "active/current" link */
   color: white;
 }
-.itemspesquisa{
-  background-color: white;
-}
-
-.teste{
-
-  background-color: rgb(233, 222, 222);
-  padding: 30px 20px 30px 20px;
-  /* border: 2px dotted blue; */
-  gap: 10px;
-  width: 600px;
-  height: 200px;
-  overflow: scroll;
-}
-body {
-   background-color: lightblue;
-
-}
-.grid-container {
-  display: grid;
-  grid-template-columns: 600px;
-  grid-template-rows: 200px;  
-  grid-gap: 10px;
-  background-color: white;
-  padding: 10px;
-  overflow: scroll;
-}
-
-

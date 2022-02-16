@@ -4,7 +4,7 @@
 
 {% load crispy_forms_tags %}
 
-{% block title %}Cadastra Produto{% endblock %}
+{% block title %}Transporte de Produto{% endblock %}
 
 {% block styles %}
     <link rel="stylesheet" type="text/css" href="{% static 'Agrochain/css/style.css' %}">
@@ -26,13 +26,7 @@
         <h5 style="text-align: center;">Dados do produtor</h5>
         <p><b>Produtor:</b> {{produtor.first_name}} {{produtor.last_name}}</p>
         <p><b>Cidade:</b> {{produtor.city}}</p>  <p><b>Estado: </b>{{produtor.state}}</p>   <p><b>País:</b> {{produtor.country}}</p>
-        {% if produto.status == "Em Transporte" %}
-        <p>Data de inicio de transporte:{{transporte.Data_inicio}}</p>
-        <p>Data de fim de transporte:{{transporte.Data_fim}}</p>
-        {%endif%}
     </div>
-
-
     <div>
 
     </div>

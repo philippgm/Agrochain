@@ -6,7 +6,7 @@
 {% block title %}Cadastra Produto{% endblock %}
 
 {% block styles %}
-    <link rel="stylesheet" type="text/css" href="{% static 'Agrochain/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'Agrochain/css/style.css' %}">
 {% endblock %}
 {% block content %}
 <div class="form-row">
@@ -21,7 +21,7 @@
         {%endif%}
 </div>
 <div class="col">
-    <h1>Preencha o formulário a seguir</h1>
+    <h1 style="text-align: center;">Preencha o formulário a seguir</h1>
 <form action="../cadastrarproduto/" method="POST">
     {% csrf_token %}
     {{ form|crispy }}
